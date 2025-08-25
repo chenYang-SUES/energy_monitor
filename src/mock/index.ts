@@ -160,6 +160,7 @@ const menulist2 = [
 ]
 // 登录接口
 Mock.mock("https://www.demo.com/login", "post", (options: any) => {
+    console.log(options.body)
     const { username, password } = JSON.parse(options.body)
     if (username === "admin" && password === "admin666") {
         return {
@@ -167,8 +168,10 @@ Mock.mock("https://www.demo.com/login", "post", (options: any) => {
             message: "登录成功",
             data: {
                 token: "fdsajfdksafdalsf",
-                username: "cyeext",
-                roles: ["admin"],
+                user: {
+                    username: "cyeext",
+                    roles: ["admin"],
+                },
                 menulist
             }
         }
@@ -178,8 +181,10 @@ Mock.mock("https://www.demo.com/login", "post", (options: any) => {
             message: "登录成功",
             data: {
                 token: "3421djaksfkfjiuerqnfn",
-                username: "mty",
-                roles: ["user"],
+                user: {
+                    username: "mty",
+                    roles: ["user"],
+                },
                 menulist: menulist2
             }
         }

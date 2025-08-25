@@ -9,6 +9,6 @@ interface LoginParams {
     password: string
 }
 
-const loginApi = (data: LoginParams): Promise<any> => post(Api.Login)
+const loginApi = (data: LoginParams): Promise<any> => post(Api.Login, data)
 
-export { loginApi }
+export { loginApi, type LoginParams }
