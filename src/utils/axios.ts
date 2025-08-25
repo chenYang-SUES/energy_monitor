@@ -12,7 +12,7 @@ service.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 }, (error: AxiosError) => {
     ElNotification({
         title: "Error",
-        message: error.message，
+        message: error.message,
         type: "error"
     })
     return Promise.reject(error)
@@ -25,8 +25,10 @@ service.interceptors.response.use((response: AxiosResponse) => {
 }, (error: AxiosError) => {
     ElNotification({
         title: "Error",
-        message: error.message，
+        message: error.message,
         type: "error"
     })
     return Promise.reject(error)
 })
+
+export default service
